@@ -18,8 +18,6 @@ O **Midas API** é o backend da plataforma Midas, desenvolvido com **Java 21 e S
 A API centraliza as regras de negócio e fornece os recursos necessários para que clientes web e mobile possam interagir com a plataforma, incluindo:
 
 - autenticação e autorização com JWT;
-- gerenciamento de usuários e telefones;
-- cadastro e gerenciamento de produtos;
 - armazenamento de imagens via Cloudinary;
 - criação e gerenciamento de leilões;
 - registro de lances;
