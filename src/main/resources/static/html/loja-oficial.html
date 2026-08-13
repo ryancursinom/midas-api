@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja Oficial Midas com produtos exclusivos vendidos em reais e integrados ao carrinho.">
+    <title>Loja Oficial Midas</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/loja-oficial.css">
+</head>
+<body class="dark-page official-store-page" data-root=".." data-page="loja-oficial">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <header class="page-heading">
+                <h1>Loja Oficial Midas</h1>
+                <p>Produtos exclusivos da marca Midas com preço fixo em reais. Adicione ao carrinho, ajuste quantidades e finalize pelo checkout acadêmico.</p>
+            </header>
+            <p id="store-status" class="form-status" role="status" aria-live="polite"></p>
+            <section aria-labelledby="official-products-title">
+                <h2 id="official-products-title" class="sr-only">Produtos oficiais</h2>
+                <div id="official-products" class="official-products"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/loja-oficial.js"></script>
+</body>
+</html>

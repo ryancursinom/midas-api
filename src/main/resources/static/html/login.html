@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Entrar - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="dark-page auth-page" data-root=".." data-page="login">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="auth-shell" tabindex="-1">
+        <section class="auth-card" aria-labelledby="login-title">
+            <h1 id="login-title">Entrar</h1>
+            <p>Acesse sua conta para participar dos leilões e gerenciar seus itens.</p>
+            <form id="login-form" class="auth-form" novalidate>
+                <div class="form-field">
+                    <label for="login-email">E-mail</label>
+                    <input id="login-email" name="email" type="email" autocomplete="email" required aria-describedby="login-email-error">
+                    <span id="login-email-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="login-password">Senha</label>
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" required aria-describedby="login-password-error">
+                    <span id="login-password-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <button class="btn-primary" type="submit">Entrar</button>
+                <p id="login-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+            <p class="auth-switch">Precisa criar um usuário? <a href="cadastro.html">Cadastre-se</a>.</p>
+        </section>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/login.js"></script>
+</body>
+</html>

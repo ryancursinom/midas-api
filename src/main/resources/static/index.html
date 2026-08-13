@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Midas, plataforma de leilões online com compra imediata opcional e recursos de acessibilidade.">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <title>Midas - O toque de ouro em leilões</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="home-page" data-root="." data-page="home">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" tabindex="-1">
+        <p id="home-status" class="sr-only" role="status" aria-live="polite"></p>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero__content">
+                <div class="hero__text-side">
+                    <div class="badge-live-label"><span class="dot" aria-hidden="true"></span> Leilões ao Vivo</div>
+                    <h1 id="hero-title">O toque de ouro que transforma sua raridade em <span class="highlight">LUCRO</span></h1>
+                    <p>De itens antigos até coisas do futuro. Encontre seu próximo investimento em uma plataforma criada para facilitar leilões confiáveis.</p>
+                    <a href="html/catalogo.html" class="btn-primary">Acessar produtos</a>
+                </div>
+                <div class="hero__image-side">
+                    <img src="assets/img/homeScreen.png" alt="Notebook exibindo a plataforma de leilões Midas">
+                </div>
+            </div>
+        </section>
+
+        <section class="kpis" aria-label="Destaques da plataforma">
+            <ul class="container kpis__grid">
+                <li class="kpi-item"><div class="kpi-icon" data-icon="users" aria-hidden="true"></div><div class="kpi-info"><strong>Clientes a vapor</strong><span>Comunidade ativa de compradores</span></div></li>
+                <li class="kpi-item"><div class="kpi-icon" data-icon="trendingUp" aria-hidden="true"></div><div class="kpi-info"><strong>Vendas constantes</strong><span>Itens de diferentes faixas de valor</span></div></li>
+                <li class="kpi-item"><div class="kpi-icon" data-icon="clock" aria-hidden="true"></div><div class="kpi-info"><strong>Suporte ao vivo</strong><span>Fluxos com feedback claro ao usuário</span></div></li>
+                <li class="kpi-item"><div class="kpi-icon" data-icon="banknote" aria-hidden="true"></div><div class="kpi-info"><strong>Leilões para todos</strong><span>Acessibilidade como parte do produto</span></div></li>
+            </ul>
+        </section>
+
+        <section class="auctions-section auctions-section--featured" id="maiores-leiloes" aria-labelledby="featured-title">
+            <div class="container">
+                <header class="section-header section-header--featured">
+                    <h2 id="featured-title">Maiores Leilões</h2>
+                    <p>Itens em destaque no catálogo do Midas.</p>
+                </header>
+                <div id="featured-grid" class="auctions-grid" aria-live="polite"></div>
+                <div class="section-footer"><a class="btn-secondary" href="html/catalogo.html">Ver todos os leilões</a></div>
+            </div>
+        </section>
+
+        <section class="categories-section" id="categorias-destaque" aria-labelledby="categories-title">
+            <div class="container">
+                <header class="section-header section-header--dark">
+                    <h2 id="categories-title">Categorias em Destaque</h2>
+                    <p>Descubra itens excepcionais nas principais categorias da plataforma.</p>
+                </header>
+                <div id="categories-grid" class="categories-grid" aria-live="polite"></div>
+                <div class="section-footer"><a class="btn-secondary" href="html/catalogo.html">Ver todas as categorias</a></div>
+            </div>
+        </section>
+
+        <section class="auctions-section auctions-section--ending" id="acabando-breve" aria-labelledby="ending-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="ending-title">Acabando em Breve</h2>
+                    <p>O período destes leilões está quase acabando.</p>
+                </header>
+                <div class="carousel-wrapper">
+                    <div id="ending-grid" class="auctions-grid auctions-grid--carousel" tabindex="0" aria-label="Leilões acabando em breve" aria-live="polite"></div>
+                    <div class="carousel-controls" aria-label="Controles do carrossel">
+                        <button class="carousel-control prev" type="button" aria-label="Ver leilão anterior" aria-controls="ending-grid"><span data-icon="chevronLeft" aria-hidden="true"></span></button>
+                        <button class="carousel-control next" type="button" aria-label="Ver próximo leilão" aria-controls="ending-grid"><span data-icon="chevronRight" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pages/home.js"></script>
+</body>
+</html>

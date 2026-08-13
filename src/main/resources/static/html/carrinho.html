@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Carrinho - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
+</head>
+<body class="dark-page cart-page" data-root=".." data-page="carrinho">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <header class="page-heading">
+                <h1>Seu Carrinho</h1>
+                <p>Ajuste as quantidades dos produtos da Loja Oficial Midas antes de finalizar. Itens de leilão continuam sendo pagos separadamente após a vitória.</p>
+            </header>
+
+            <p id="cart-status" class="sr-only" role="status" aria-live="polite"></p>
+
+            <div class="cart-layout">
+                <section aria-labelledby="cart-items-title">
+                    <h2 id="cart-items-title" class="sr-only">Itens do carrinho</h2>
+                    <div id="cart-list" class="cart-list"></div>
+                </section>
+
+                <aside class="cart-summary" aria-labelledby="cart-summary-title">
+                    <h2 id="cart-summary-title">Resumo</h2>
+                    <div class="cart-summary-row"><span>Itens</span><span id="cart-item-count">0</span></div>
+                    <div class="cart-summary-row cart-summary-total"><span>Total</span><span id="cart-total">R$ 0,00</span></div>
+                    <a id="cart-checkout-link" class="btn-primary" href="checkout.html">Ir para o Checkout</a>
+                    <a class="cart-continue-link" href="loja-oficial.html">Ir para Loja Oficial Midas</a>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/carrinho.js"></script>
+</body>
+</html>

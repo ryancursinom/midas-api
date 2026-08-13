@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Categoria específica do catálogo Midas.">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Categoria - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/categoria.css">
+</head>
+<body class="dark-page category-page" data-root=".." data-page="catalogo">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <a class="btn-secondary category-back" href="catalogo.html"><span data-icon="chevronLeft" aria-hidden="true"></span>Voltar ao catálogo</a>
+            <header class="page-heading">
+                <h1 id="category-title">Catálogo da categoria</h1>
+                <p id="category-description">Use os filtros para encontrar o item ideal.</p>
+            </header>
+
+            <form id="category-filter-form" class="filter-card" novalidate>
+                <div class="filter-card__header">
+                    <h2>Filtros</h2>
+                    <button class="btn-secondary" type="reset"><span data-icon="rotateCcw" aria-hidden="true"></span>Limpar filtros</button>
+                </div>
+                <div class="filters-panel">
+                    <div class="form-field search-row">
+                        <label for="category-search">Buscar</label>
+                        <input id="category-search" class="search-input" name="search" type="search" placeholder="Buscar por nome, ID ou marca" autocomplete="off">
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-min-price">Preço mínimo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="filter-min-price" name="minPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-max-price">Preço máximo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="filter-max-price" name="maxPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-condition">Estado físico</label>
+                        <select id="filter-condition" name="condition">
+                            <option value="all">Carregando estados...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-rarity">Raridade</label>
+                        <select id="filter-rarity" name="rarity">
+                            <option value="all">Carregando raridades...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-ending">Tempo para acabar</label>
+                        <select id="filter-ending" name="ending">
+                            <option value="all">Qualquer tempo</option>
+                            <option value="24">Até 24 horas</option>
+                            <option value="72">Até 3 dias</option>
+                            <option value="168">Até 7 dias</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="filter-sort">Ordenação</label>
+                        <select id="filter-sort" name="sort">
+                            <option value="relevance">Relevância</option>
+                            <option value="price-asc">Menor preço</option>
+                            <option value="price-desc">Maior preço</option>
+                            <option value="ending">Terminando em breve</option>
+                        </select>
+                    </div>
+                    <div id="filter-brand-field" class="form-field" hidden>
+                        <label for="filter-brand">Marca</label>
+                        <input id="filter-brand" name="brand" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </form>
+
+            <p id="category-result-summary" class="category-summary" role="status" aria-live="polite"></p>
+            <section aria-labelledby="category-results-title">
+                <h2 id="category-results-title" class="sr-only">Resultados</h2>
+                <div id="category-grid" class="auctions-grid" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/categoria.js"></script>
+</body>
+</html>

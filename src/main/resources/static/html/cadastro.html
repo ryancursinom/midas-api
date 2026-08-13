@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Cadastro - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body class="dark-page auth-page" data-root=".." data-page="cadastro">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="auth-shell" tabindex="-1">
+        <section class="auth-card" aria-labelledby="register-title">
+            <h1 id="register-title">Criar conta</h1>
+            <p>Cadastre-se para favoritar itens, dar lances e criar seus próprios leilões.</p>
+            <form id="register-form" class="auth-form" novalidate>
+                <div class="form-field">
+                    <label for="register-name">Nome completo</label>
+                    <input id="register-name" name="name" type="text" autocomplete="name" maxlength="255" required aria-describedby="register-name-error">
+                    <span id="register-name-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="register-username">Nome de usuário</label>
+                    <input id="register-username" name="username" type="text" autocomplete="username" maxlength="50" required aria-describedby="register-username-error">
+                    <span id="register-username-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="register-email">E-mail</label>
+                    <input id="register-email" name="email" type="email" autocomplete="email" maxlength="255" required aria-describedby="register-email-error">
+                    <span id="register-email-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="register-phone">Telefone</label>
+                    <input id="register-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" required aria-describedby="register-phone-error">
+                    <span id="register-phone-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="register-password">Senha</label>
+                    <input id="register-password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="255" required aria-describedby="register-password-error">
+                    <span id="register-password-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                    <label for="register-confirm-password">Confirmar senha</label>
+                    <input id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" maxlength="255" required aria-describedby="register-confirm-password-error">
+                    <span id="register-confirm-password-error" class="field-error" aria-live="polite"></span>
+                </div>
+                <label class="checkbox-row" for="register-terms">
+                    <input id="register-terms" name="terms" type="checkbox" required aria-describedby="register-terms-error">
+                    <span>Li e aceito os termos de uso da plataforma.</span>
+                </label>
+                <span id="register-terms-error" class="field-error" aria-live="polite"></span>
+                <button class="btn-primary" type="submit">Criar conta</button>
+                <p id="register-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+            <p class="auth-switch">Já tem conta? <a href="login.html">Entre aqui</a>.</p>
+        </section>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/cadastro.js"></script>
+</body>
+</html>

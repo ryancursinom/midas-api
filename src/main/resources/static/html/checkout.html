@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Checkout - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body class="dark-page checkout-page" data-root=".." data-page="checkout">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="flow-header">
+        <div class="container flow-header__content">
+            <a class="logo" href="../index.html" aria-label="Ir para a página inicial do Midas">
+                <img src="../assets/img/logo.png" alt="Midas">
+            </a>
+        </div>
+    </header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <button class="back-button" type="button" data-back-button data-back-fallback="carrinho.html">
+                <span data-icon="chevronLeft" aria-hidden="true"></span>
+                Voltar
+            </button>
+
+            <header class="page-heading">
+                <h1 id="checkout-title">Finalizar compra</h1>
+                <p id="checkout-description">Preencha os dados abaixo. Este checkout é acadêmico e não realiza cobrança real.</p>
+            </header>
+
+            <div id="checkout-state" aria-live="polite"></div>
+            <div id="checkout-content" class="checkout-layout" hidden>
+                <section class="checkout-form-card" aria-labelledby="checkout-form-title">
+                    <h2 id="checkout-form-title">Dados de entrega e pagamento</h2>
+                    <form id="checkout-form" novalidate>
+                        <div class="form-grid">
+                            <div class="form-field form-field--full">
+                                <label for="checkout-name">Nome completo</label>
+                                <input id="checkout-name" name="name" type="text" autocomplete="name" required aria-describedby="checkout-name-error">
+                                <span id="checkout-name-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="checkout-email">E-mail</label>
+                                <input id="checkout-email" name="email" type="email" autocomplete="email" required aria-describedby="checkout-email-error">
+                                <span id="checkout-email-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="checkout-phone">Telefone</label>
+                                <input id="checkout-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="checkout-phone-error">
+                                <span id="checkout-phone-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="form-field form-field--full">
+                                <label for="checkout-address">Endereço</label>
+                                <input id="checkout-address" name="address" type="text" autocomplete="street-address" required aria-describedby="checkout-address-error">
+                                <span id="checkout-address-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="checkout-city">Cidade</label>
+                                <input id="checkout-city" name="city" type="text" autocomplete="address-level2" required aria-describedby="checkout-city-error">
+                                <span id="checkout-city-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="checkout-postal-code">CEP</label>
+                                <input id="checkout-postal-code" name="postalCode" type="text" inputmode="numeric" autocomplete="postal-code" required aria-describedby="checkout-postal-code-error">
+                                <span id="checkout-postal-code-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <fieldset class="payment-method-fieldset form-field--full">
+                                <legend>Forma de pagamento</legend>
+                                <div class="payment-method-tabs">
+                                    <label class="payment-method-option">
+                                        <input type="radio" name="paymentMethod" value="CARTAO_CREDITO" checked>
+                                        <span>Cartão</span>
+                                    </label>
+                                    <label class="payment-method-option">
+                                        <input type="radio" name="paymentMethod" value="PIX">
+                                        <span>PIX</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div id="checkout-card-fields" class="payment-fields form-grid form-field--full">
+                                <div class="form-field form-field--full">
+                                    <label for="checkout-card-name">Nome no cartão</label>
+                                    <input id="checkout-card-name" name="cardName" type="text" autocomplete="cc-name" required aria-describedby="checkout-card-name-error">
+                                    <span id="checkout-card-name-error" class="field-error" aria-live="polite"></span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="checkout-card-number">Número do cartão fictício</label>
+                                    <input id="checkout-card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" required aria-describedby="checkout-card-number-error">
+                                    <span id="checkout-card-number-error" class="field-error" aria-live="polite"></span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="checkout-expiry">Validade</label>
+                                    <input id="checkout-expiry" name="expiry" type="text" inputmode="numeric" placeholder="MM/AA" autocomplete="cc-exp" maxlength="5" required aria-describedby="checkout-expiry-error">
+                                    <span id="checkout-expiry-error" class="field-error" aria-live="polite"></span>
+                                </div>
+                            </div>
+                            <section id="checkout-pix-fields" class="pix-payment-panel form-field--full" aria-labelledby="checkout-pix-title" hidden>
+                                <h3 id="checkout-pix-title">Pagamento com PIX</h3>
+                                <div class="pix-qr-placeholder" aria-hidden="true">PIX</div>
+                                <p>Este PIX é apenas demonstrativo. Ao confirmar, o sistema simula a aprovação sem realizar cobrança real.</p>
+                                <p><strong>Chave PIX demonstrativa:</strong> midas.demo@pix</p>
+                            </section>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" type="submit">Confirmar compra</button>
+                        </div>
+                        <p id="checkout-form-status" class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </section>
+
+                <aside class="checkout-summary" aria-labelledby="checkout-summary-title">
+                    <h2 id="checkout-summary-title">Resumo do pedido</h2>
+                    <div id="checkout-summary-list" class="checkout-summary-list"></div>
+                    <div class="checkout-total"><span>Total</span><span id="checkout-total">R$ 0,00</span></div>
+                </aside>
+            </div>
+
+            <section id="checkout-success" class="checkout-success" hidden tabindex="-1" aria-labelledby="checkout-success-title">
+                <h2 id="checkout-success-title">Compra confirmada</h2>
+                <p id="checkout-success-message"></p>
+                <div class="form-actions">
+                    <a class="btn-primary" href="catalogo.html">Voltar ao catálogo</a>
+                    <a class="btn-secondary" href="meus-leiloes.html?aba=lances">Ver meus leilões</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/checkout.js"></script>
+</body>
+</html>

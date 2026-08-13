@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Meus Leilões - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/meus-leiloes.css">
+</head>
+<body class="dark-page my-auctions-page" data-root=".." data-page="meus-leiloes">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <nav class="tabs" aria-label="Tipos de leilões do usuário">
+                <a id="tab-favorites" href="meus-leiloes.html?aba=favoritos">Favoritados</a>
+                <a id="tab-created" href="meus-leiloes.html?aba=criados">Abertos por Você</a>
+                <a id="tab-bids" href="meus-leiloes.html?aba=lances">Com seus Lances</a>
+            </nav>
+
+            <header class="page-heading my-auctions-heading">
+                <div>
+                    <h1 id="my-auctions-title">Meus Leilões</h1>
+                    <p id="my-auctions-description">Acompanhe os itens relacionados à sua conta.</p>
+                </div>
+                <a id="my-create-auction" class="btn-primary" href="criar-leilao.html" hidden>Criar novo leilão</a>
+            </header>
+
+            <form id="my-auctions-filter-form" class="filter-card" novalidate>
+                <div class="filter-card__header">
+                    <h2>Filtros</h2>
+                    <button class="btn-secondary" type="reset"><span data-icon="rotateCcw" aria-hidden="true"></span>Limpar filtros</button>
+                </div>
+                <div class="filters-panel">
+                    <div class="form-field">
+                        <label for="my-min-price">Preço mínimo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="my-min-price" name="minPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="my-max-price">Preço máximo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="my-max-price" name="maxPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="my-ending">Tempo para acabar</label>
+                        <select id="my-ending" name="ending">
+                            <option value="all">Qualquer tempo</option>
+                            <option value="24">Até 24 horas</option>
+                            <option value="72">Até 3 dias</option>
+                            <option value="168">Até 7 dias</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="my-category">Categoria</label>
+                        <select id="my-category" name="category">
+                            <option value="all">Carregando categorias...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="my-condition">Estado físico</label>
+                        <select id="my-condition" name="condition">
+                            <option value="all">Carregando estados...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="my-rarity">Raridade</label>
+                        <select id="my-rarity" name="rarity">
+                            <option value="all">Carregando raridades...</option>
+                        </select>
+                    </div>
+                    <div id="my-brand-field" class="form-field" hidden>
+                        <label for="my-brand">Marca</label>
+                        <input id="my-brand" name="brand" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </form>
+
+            <p id="my-auctions-count" class="my-auctions-count" role="status" aria-live="polite"></p>
+            <section aria-labelledby="my-auctions-results-title">
+                <h2 id="my-auctions-results-title" class="sr-only">Resultados</h2>
+                <div id="my-auctions-grid" class="auctions-grid" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/meus-leiloes.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Perfil - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+</head>
+<body class="dark-page profile-page" data-root=".." data-page="perfil">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" tabindex="-1">
+        <div class="profile-layout">
+            <aside class="profile-sidebar" aria-label="Navegação do perfil">
+                <p class="profile-sidebar-title">Perfil de usuário</p>
+                <a href="perfil.html" aria-current="page"><span data-icon="user" aria-hidden="true"></span>Informações de usuário</a>
+                <a href="configuracoes.html?origem=perfil"><span data-icon="settings" aria-hidden="true"></span>Configurações</a>
+                <button id="logout-button" class="logout-button" type="button"><span data-icon="logout" aria-hidden="true"></span>Sair da conta</button>
+            </aside>
+
+            <section class="profile-content" aria-labelledby="profile-name-heading">
+                <div id="profile-state" aria-live="polite"></div>
+
+                <div id="profile-data" hidden>
+                    <header class="profile-header">
+                        <div class="profile-avatar-shell">
+                            <div class="profile-avatar" aria-hidden="true">
+                                <img id="profile-avatar-image" class="profile-avatar-image" alt="" hidden>
+                                <span id="profile-avatar-initials" class="profile-avatar-initials">M</span>
+                            </div>
+                            <button id="profile-avatar-edit" class="profile-avatar-edit" type="button" aria-label="Editar foto de perfil" title="Editar foto de perfil">
+                                <span data-icon="pencil" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="profile-header-copy">
+                            <h1 id="profile-name-heading">Usuário Midas</h1>
+                            <p id="profile-username">@usuario</p>
+                        </div>
+                    </header>
+
+                    <div class="profile-panels">
+                        <section class="profile-panel" aria-labelledby="account-info-title">
+                            <h2 id="account-info-title">Informações da Conta</h2>
+                            <form id="profile-form" class="profile-form" novalidate>
+                                <div class="form-field"><label for="profile-name">Nome</label><input id="profile-name" name="name" type="text" autocomplete="name" maxlength="255" required aria-describedby="profile-name-error"><span id="profile-name-error" class="field-error" aria-live="polite"></span></div>
+                                <div class="form-field"><label for="profile-email">E-mail</label><input id="profile-email" name="email" type="email" autocomplete="email" maxlength="255" required aria-describedby="profile-email-error"><span id="profile-email-error" class="field-error" aria-live="polite"></span></div>
+                                <div class="form-field"><label for="profile-phone">Telefone</label><input id="profile-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" required aria-describedby="profile-phone-error"><span id="profile-phone-error" class="field-error" aria-live="polite"></span></div>
+                                <div class="form-actions"><button class="btn-primary" type="submit">Salvar alterações</button></div>
+                                <p id="profile-form-status" class="form-status" role="status" aria-live="polite"></p>
+                            </form>
+                        </section>
+
+                        <section class="profile-panel" aria-labelledby="password-title">
+                            <h2 id="password-title">Alterar senha</h2>
+                            <form id="password-form" class="profile-form" novalidate>
+                                <div class="form-field"><label for="current-password">Senha atual</label><input id="current-password" name="currentPassword" type="password" autocomplete="current-password" maxlength="255" required aria-describedby="current-password-error"><span id="current-password-error" class="field-error" aria-live="polite"></span></div>
+                                <div class="form-field"><label for="new-password">Nova senha</label><input id="new-password" name="newPassword" type="password" autocomplete="new-password" minlength="8" maxlength="255" required aria-describedby="new-password-error"><span id="new-password-error" class="field-error" aria-live="polite"></span></div>
+                                <div class="form-actions"><button class="btn-secondary" type="submit">Atualizar senha</button></div>
+                                <p id="password-status" class="form-status" role="status" aria-live="polite"></p>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+    <dialog id="profile-photo-dialog" class="midas-dialog profile-photo-dialog" aria-labelledby="profile-photo-title">
+        <div class="dialog-surface">
+            <button class="dialog-close-button" type="button" data-dialog-close aria-label="Fechar edição da foto">
+                <span data-icon="x" aria-hidden="true"></span>
+            </button>
+            <h2 id="profile-photo-title">Editar foto de perfil</h2>
+            <div class="profile-photo-dialog-content">
+                <div class="profile-photo-preview" aria-hidden="true">
+                    <img id="profile-photo-preview-image" class="profile-avatar-image" alt="" hidden>
+                    <span id="profile-photo-preview-initials" class="profile-avatar-initials">M</span>
+                </div>
+                <div class="form-field">
+                    <label for="profile-photo-input">Selecionar foto</label>
+                    <input id="profile-photo-input" type="file" accept="image/*" aria-describedby="profile-photo-help profile-photo-status">
+                    <p id="profile-photo-help" class="form-help">Use uma imagem de até 5 MB.</p>
+                </div>
+                <p id="profile-photo-status" class="profile-photo-status" role="status" aria-live="polite"></p>
+            </div>
+            <div class="form-actions profile-photo-dialog-actions">
+                <button class="btn-secondary" type="button" data-dialog-close>Cancelar</button>
+                <button id="profile-photo-save" class="btn-primary" type="button" disabled>Salvar foto</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/perfil.js"></script>
+</body>
+</html>

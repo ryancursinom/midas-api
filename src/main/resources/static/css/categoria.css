@@ -1,0 +1,13 @@
+.category-page {
+    background: var(--bg-dark);
+    color: var(--text-white);
+}
+
+.category-back {
+    margin-bottom: 24px;
+}
+
+.category-summary {
+    margin-top: 22px;
+    color: var(--text-muted-dark);
+}

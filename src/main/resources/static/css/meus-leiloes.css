@@ -1,0 +1,4 @@
+.my-auctions-page { background: var(--page-bg); color: var(--text-white); }
+.my-auctions-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.my-auctions-count { margin: 18px 0 28px; color: var(--text-muted-dark); }
+@media (max-width: 620px) { .my-auctions-heading { flex-direction: column; } }

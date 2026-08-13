@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de leilões do Midas com busca, filtros e ordenação.">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Catálogo - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/catalogo.css">
+</head>
+<body class="dark-page catalog-page" data-root=".." data-page="catalogo">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <header class="page-heading">
+                <h1>Catálogo de Leilões</h1>
+                <p>Encontre leilões por nome, categoria, marca, preço ou tempo restante.</p>
+            </header>
+
+            <form id="catalog-search-form" class="filter-card" role="search" novalidate>
+                <div class="filter-card__header">
+                    <div><h2>Filtros</h2><p>Refine os resultados sem perder sua busca.</p></div>
+                    <button id="catalog-clear-filters" class="btn-secondary" type="reset"><span data-icon="rotateCcw" aria-hidden="true"></span>Limpar filtros</button>
+                </div>
+                <div class="filters-panel">
+                    <div class="form-field search-row">
+                        <label for="catalog-search">Buscar</label>
+                        <input id="catalog-search" class="search-input" name="search" type="search" placeholder="Busque por nome, ID, categoria ou marca" autocomplete="off">
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-category">Categoria</label>
+                        <select id="catalog-category" name="category">
+                            <option value="all">Carregando categorias...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-condition">Estado físico</label>
+                        <select id="catalog-condition" name="condition">
+                            <option value="all">Carregando estados...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-rarity">Raridade</label>
+                        <select id="catalog-rarity" name="rarity">
+                            <option value="all">Carregando raridades...</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-min-price">Preço mínimo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="catalog-min-price" name="minPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-max-price">Preço máximo</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="catalog-max-price" name="maxPrice" type="number" min="0" step="50" inputmode="decimal"></div>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-ending">Tempo para acabar</label>
+                        <select id="catalog-ending" name="ending">
+                            <option value="all">Qualquer tempo</option>
+                            <option value="24">Até 24 horas</option>
+                            <option value="72">Até 3 dias</option>
+                            <option value="168">Até 7 dias</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="catalog-sort">Ordenação</label>
+                        <select id="catalog-sort" name="sort">
+                            <option value="relevance">Relevância</option>
+                            <option value="price-asc">Menor preço</option>
+                            <option value="price-desc">Maior preço</option>
+                            <option value="ending">Terminando em breve</option>
+                        </select>
+                    </div>
+                    <div id="catalog-brand-field" class="form-field" hidden>
+                        <label for="catalog-brand">Marca</label>
+                        <input id="catalog-brand" name="brand" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </form>
+
+            <p id="catalog-status" class="sr-only" role="status" aria-live="polite"></p>
+            <div id="catalog-content" class="catalog-sections" aria-live="polite"></div>
+        </div>
+    </main>
+
+    <footer class="footer" data-site-footer></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/catalogo.js"></script>
+</body>
+</html>

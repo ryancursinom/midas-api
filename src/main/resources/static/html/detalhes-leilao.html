@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulte informações, lances e opções de compra de um leilão do Midas.">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Detalhes do Leilão - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detalhes-leilao.css">
+</head>
+<body class="dark-page details-page" data-root=".." data-page="catalogo">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell details-shell" tabindex="-1">
+        <div class="container">
+            <button class="back-button" type="button" data-back-button data-back-fallback="catalogo.html">
+                <span data-icon="chevronLeft" aria-hidden="true"></span>
+                Voltar
+            </button>
+
+            <div id="details-state" aria-live="polite"></div>
+
+            <div id="details-content" hidden>
+                <div class="details-layout">
+                    <section class="details-image-section" aria-labelledby="item-image-title">
+                        <h2 id="item-image-title" class="sr-only">Imagem principal do item</h2>
+                        <figure class="details-main-image">
+                            <img id="details-main-image" src="../assets/img/item-default.svg" alt="">
+                        </figure>
+                        <div id="details-image-gallery" class="details-image-gallery" aria-label="Galeria de imagens do item" data-i18n-aria-label="Galeria de imagens do item"></div>
+                    </section>
+
+                    <article class="details-panel" aria-labelledby="details-title">
+                        <p id="details-category" class="details-kicker"></p>
+                        <h1 id="details-title"></h1>
+                        <p id="details-description" class="details-description"></p>
+
+                        <dl class="details-meta">
+                            <div>
+                                <dt>Condição</dt>
+                                <dd id="details-condition"></dd>
+                            </div>
+                            <div>
+                                <dt>Raridade</dt>
+                                <dd id="details-rarity"></dd>
+                            </div>
+                            <div>
+                                <dt>Data e hora de encerramento</dt>
+                                <dd id="details-ends-at"></dd>
+                            </div>
+                            <div>
+                                <dt>Tempo restante</dt>
+                                <dd id="details-countdown"></dd>
+                            </div>
+                            <div>
+                                <dt>Marca</dt>
+                                <dd id="details-brand"></dd>
+                            </div>
+                        </dl>
+
+                        <div id="details-price-live" class="details-price" role="status" aria-live="polite" aria-atomic="true">
+                            <span id="details-price-label">Lance atual</span>
+                            <strong id="details-price"></strong>
+                        </div>
+
+                        <p id="details-buy-now-info" class="details-buy-now-info" hidden></p>
+                        <p id="details-action-status" class="form-status" role="status" aria-live="polite"></p>
+                    </article>
+                </div>
+
+                <aside id="owner-read-only-message" class="owner-read-only-message" role="status" hidden>
+                    <strong>Este leilão foi criado por você.</strong>
+                    <span>Você pode acompanhar o histórico de lances, mas não pode dar lance ou comprar o próprio item.</span>
+                </aside>
+
+                <section id="bid-section" class="bid-section" aria-labelledby="bid-title">
+                    <header class="section-heading">
+                        <h2 id="bid-title">Participar do leilão</h2>
+                        <p id="bid-minimum-help" class="section-helper"></p>
+                    </header>
+
+                    <div class="auction-action-layout">
+                        <form id="bid-form" class="bid-form" novalidate>
+                            <div class="form-field">
+                                <label for="bid-amount">Valor do novo lance</label>
+                                <div class="currency-field">
+                                    <span class="currency-prefix" aria-hidden="true">R$</span>
+                                    <input
+                                        id="bid-amount"
+                                        name="amount"
+                                        type="number"
+                                        min="0.01"
+                                        step="10"
+                                        inputmode="decimal"
+                                        required
+                                        aria-describedby="bid-minimum-help bid-amount-error"
+                                    >
+                                </div>
+                                <span id="bid-amount-error" class="field-error" aria-live="polite"></span>
+                            </div>
+                            <button class="btn-primary bid-submit-button" type="submit">Dar Lance</button>
+                        </form>
+                        <div id="buy-now-action" class="buy-now-action" hidden></div>
+                    </div>
+                </section>
+
+                <section class="bid-history-section" aria-labelledby="bid-history-title">
+                    <header class="section-heading">
+                        <h2 id="bid-history-title">Histórico de lances</h2>
+                        <p class="section-helper">Os valores e horários são exibidos sem identificar quem realizou cada lance.</p>
+                    </header>
+                    <div id="bid-history" class="bid-history-list" aria-live="polite" aria-atomic="false"></div>
+                </section>
+
+                <section id="auction-winner-section" class="winner-section" aria-labelledby="auction-winner-title" hidden>
+                    <header class="section-heading">
+                        <h2 id="auction-winner-title">Vencedor do leilão</h2>
+                    </header>
+                    <dl id="auction-winner-contact" class="winner-contact-list"></dl>
+                    <p id="auction-without-winner" class="winner-empty-message" hidden>
+                        Este leilão foi encerrado sem vencedor.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="bid-confirm-dialog" class="midas-dialog" aria-labelledby="bid-confirm-title">
+        <div class="dialog-surface">
+            <button class="dialog-close-button" type="button" data-dialog-close aria-label="Fechar confirmação">
+                <span data-icon="x" aria-hidden="true"></span>
+            </button>
+            <h2 id="bid-confirm-title">Confirmar lance</h2>
+            <p id="bid-confirm-message"></p>
+            <div class="dialog-actions">
+                <button id="bid-confirm-button" class="btn-primary" type="button">Confirmar lance</button>
+                <button class="btn-secondary" type="button" data-dialog-close>Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="buy-now-confirm-dialog" class="midas-dialog" aria-labelledby="buy-now-confirm-title">
+        <div class="dialog-surface">
+            <button class="dialog-close-button" type="button" data-dialog-close aria-label="Fechar confirmação">
+                <span data-icon="x" aria-hidden="true"></span>
+            </button>
+            <h2 id="buy-now-confirm-title">Confirmar Compra Imediata</h2>
+            <p id="buy-now-confirm-message"></p>
+            <div class="dialog-actions">
+                <button id="buy-now-confirm-button" class="btn-primary" type="button">Comprar agora</button>
+                <button class="btn-secondary" type="button" data-dialog-close>Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/detalhes-leilao.js"></script>
+</body>
+</html>

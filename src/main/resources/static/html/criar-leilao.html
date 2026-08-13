@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <title>Criar Leilão - Midas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/criar-leilao.css">
+</head>
+<body class="dark-page create-auction-page" data-root=".." data-page="meus-leiloes">
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+    <header class="navbar" data-site-header></header>
+
+    <main id="conteudo-principal" class="page-shell" tabindex="-1">
+        <div class="container">
+            <button class="back-button" type="button" data-back-button data-back-fallback="meus-leiloes.html?aba=criados">
+                <span data-icon="chevronLeft" aria-hidden="true"></span>
+                Voltar
+            </button>
+
+            <header class="page-heading">
+                <h1 id="create-auction-title">Criar Leilão</h1>
+                <p>Cadastre um item com informações claras e, se quiser, ofereça uma compra imediata além dos lances.</p>
+            </header>
+
+            <form id="create-auction-form" class="create-auction-form" enctype="multipart/form-data" novalidate>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="auction-name">Nome do item</label>
+                        <input id="auction-name" name="name" type="text" required aria-describedby="auction-name-error">
+                        <span id="auction-name-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-category">Categoria</label>
+                        <select id="auction-category" name="category" required aria-describedby="auction-category-error">
+                            <option value="">Carregando categorias...</option>
+                        </select>
+                        <span id="auction-category-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field form-field--full">
+                        <label for="auction-description">Descrição</label>
+                        <textarea id="auction-description" name="description" rows="6" required aria-describedby="auction-description-error"></textarea>
+                        <span id="auction-description-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-sale-type">Tipo de venda</label>
+                        <select id="auction-sale-type" name="saleType">
+                            <option value="AUCTION">Somente leilão</option>
+                            <option value="AUCTION_WITH_BUY_NOW">Leilão com Compra Imediata</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-value">Valor inicial</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="auction-value" name="value" type="number" min="1" step="10" inputmode="decimal" required aria-describedby="auction-value-error"></div>
+                        <span id="auction-value-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div id="auction-buy-now-field" class="form-field" hidden>
+                        <label for="auction-buy-now-value">Valor de Compra Imediata</label>
+                        <div class="currency-field"><span class="currency-prefix" aria-hidden="true">R$</span><input id="auction-buy-now-value" name="buyNowPrice" type="number" min="1" step="10" inputmode="decimal" aria-describedby="auction-buy-now-error auction-buy-now-help"></div>
+                        <p id="auction-buy-now-help" class="form-help">Precisa ser maior que o valor inicial. Se alguém comprar, o leilão encerra imediatamente.</p>
+                        <span id="auction-buy-now-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-duration">Duração do leilão</label>
+                        <select id="auction-duration" name="duration">
+                            <option value="24">24 horas</option>
+                            <option value="72">3 dias</option>
+                            <option value="168" selected>7 dias</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                    <div id="auction-custom-end-field" class="form-field" hidden>
+                        <label for="auction-end-date">Data e hora de encerramento</label>
+                        <input id="auction-end-date" name="customEndDate" type="datetime-local" disabled aria-describedby="auction-end-date-error">
+                        <span id="auction-end-date-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-condition">Condição do Item</label>
+                        <select id="auction-condition" name="condition" required aria-describedby="auction-condition-error">
+                            <option value="">Carregando condições...</option>
+                        </select>
+                        <span id="auction-condition-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="auction-rarity">Raridade</label>
+                        <select id="auction-rarity" name="rarity" required aria-describedby="auction-rarity-error">
+                            <option value="">Carregando raridades...</option>
+                        </select>
+                        <span id="auction-rarity-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                    <div id="auction-brand-field" class="form-field" hidden>
+                        <label for="auction-brand">Marca</label>
+                        <input id="auction-brand" name="brand" type="text" autocomplete="off">
+                    </div>
+                    <div class="form-field form-field--full">
+                        <label for="auction-images">Imagens do item</label>
+                        <div class="file-upload-control">
+                            <input id="auction-images" class="file-input-visually-hidden" name="images" type="file" accept="image/*" multiple aria-describedby="auction-images-help auction-images-error">
+                            <label class="file-upload-button" for="auction-images"><span data-icon="upload" aria-hidden="true"></span>Adicionar imagens</label>
+                            <p id="auction-images-help" class="form-help">Selecione uma ou mais imagens. Você pode remover cada prévia antes de publicar.</p>
+                        </div>
+                        <div id="auction-images-preview" class="image-preview-grid" aria-live="polite" hidden></div>
+                        <span id="auction-images-error" class="field-error" aria-live="polite"></span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="auction-submit-button" class="btn-primary" type="submit">Publicar item</button>
+                    <a class="btn-secondary" href="meus-leiloes.html?aba=criados">Cancelar</a>
+                </div>
+                <p id="create-auction-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/pages/criar-leilao.js"></script>
+</body>
+</html>
